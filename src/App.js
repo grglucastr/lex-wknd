@@ -1,25 +1,75 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Areas from './Areas';
+
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      areas: [
+        {
+          name: 'Quadras', 
+          slug:'quadra',
+          subareas: [
+            {
+              name:'Basquete',
+              slug:'basquete', 
+              types: [
+                {name:'Coberta', details:'Lorem ipsum dolor sit amet'},
+                {name:'Aberta', details:'Lorem ipsum dolor sit amet'}
+              ]
+            },
+
+            {
+              name:'Tennis',
+              slug:'tennis', 
+              types: [
+                {name:'Green', details:'Lorem ipsum dolor sit amet'},
+                {name:'Beige', details:'Lorem ipsum dolor sit amet'}
+              ]
+            },
+
+            {
+              name:'Futsal', 
+              slug:'futsal',
+              types: [
+                {name:'Grande', details:'Lorem ipsum dolor sit amet'},
+                {name:'Pequena', details:'Lorem ipsum dolor sit amet'}
+              ]
+            }
+          ]
+        },
+
+        {
+          name: 'Piscinas',
+          slug:'piscina',
+          subareas: [
+            {
+              name: 'Infantil',
+              types: []
+            },
+            {
+              name: 'Adulto',
+              types: [
+                { name: 'Olimpica', details: 'Lorem ipsum dolor sit amet' },
+                { name: 'Normal', details: 'lorem ipsum dolor sit amet'}
+              ]
+            }
+
+          ]
+        }
+      ]
+    }
+  }
+
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container-fluid">
+        <Areas areas={this.state.areas} />
       </div>
     );
   }
