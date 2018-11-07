@@ -69,7 +69,11 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Areas areas={this.state.areas} />
+        <div className="row">
+          <div className="col-sm-3">
+            <Areas areas={this.state.areas} />
+          </div>
+        </div>
       </div>
     );
   }
