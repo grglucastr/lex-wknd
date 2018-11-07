@@ -2,7 +2,9 @@ import  React  from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Areas = ({areas}) => {
+import AreaItem from './AreaItem';
+
+const AreaList = ({areas}) => {
 
 	return(
 		<div>
@@ -10,10 +12,7 @@ const Areas = ({areas}) => {
 			<ul className="list-group">
 			{
 				areas.map(({name, slug}) => (
-					<a key={slug} 
-						 className="list-group-item list-group-item-action">
-						 {name}
-					</a>
+					<AreaItem name={name} key={slug} />
 				))
 			}
 			</ul>
@@ -22,8 +21,8 @@ const Areas = ({areas}) => {
 
 }
 
-export default Areas;
+export default AreaList;
 
-Areas.propTypes = {
+AreaList.propTypes = {
 	areas: PropTypes.array.isRequired
 }

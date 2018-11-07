@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Areas from './Areas';
+import AreaList from './AreaList';
 
 
 class App extends Component {
@@ -60,6 +60,25 @@ class App extends Component {
             }
 
           ]
+        },
+
+        {
+          name: 'Gaming Room',
+          slug:'gaming-room',
+          subareas: [
+            {
+              name: 'Infantil',
+              types: []
+            },
+            {
+              name: 'Adulto',
+              types: [
+                { name: 'Olimpica', details: 'Lorem ipsum dolor sit amet' },
+                { name: 'Normal', details: 'lorem ipsum dolor sit amet'}
+              ]
+            }
+
+          ]
         }
       ]
     }
@@ -71,7 +90,7 @@ class App extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-3">
-            <Areas areas={this.state.areas} />
+            <AreaList areas={this.state.areas} />
           </div>
         </div>
       </div>
