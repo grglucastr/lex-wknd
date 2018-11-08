@@ -69,11 +69,11 @@ class App extends Component {
           slug:'gaming-room',
           subareas: [
             {
-              name: 'Infantil',
+              name: 'PS4',
               types: []
             },
             {
-              name: 'Adulto',
+              name: 'PCs',
               types: [
                 { name: 'Olimpica', details: 'Lorem ipsum dolor sit amet' },
                 { name: 'Normal', details: 'lorem ipsum dolor sit amet'}
@@ -100,9 +100,9 @@ class App extends Component {
             <Route exact path='/' component={Home}  />
 
             {
-             areas.map(({slug, name}) => (
-              <Route path={`/${slug}`} key={slug}  render={() => (
-                <AreaDetails name={name} />
+             areas.map((area) => (
+              <Route path={`/${area.slug}`} key={area.slug}  render={() => (
+                <AreaDetails area={area} />
               )} />
              ))
             }
