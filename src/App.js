@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
-import AreaList from './AreaList';
-
+import Home from './Home';
+import AreaBar from './AreaBar';
+import AreaDetails from './AreaDetails';
 
 class App extends Component {
 
@@ -86,11 +88,25 @@ class App extends Component {
 
 
   render() {
+
+    const {areas} = this.state;
+
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-sm-3">
-            <AreaList areas={this.state.areas} />
+          <div className="col">
+            <AreaBar areas={areas} />
+
+            <Route exact path='/' component={Home}  />
+
+            {
+             areas.map(({slug, name}) => (
+              <Route path={`/${slug}`} key={slug}  render={() => (
+                <AreaDetails name={name} />
+              )} />
+             ))
+            }
+            
           </div>
         </div>
       </div>
